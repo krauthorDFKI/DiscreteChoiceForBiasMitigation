@@ -1,0 +1,482 @@
+{
+  "overexposure": {
+    "B": {
+      "Recommender_most_popular": {},
+      "Recommender_random": {},
+      "Recommender_knn": {
+        "n_neighbours": 81
+      },
+      "Recommender_bpr": {
+        "batch_size": 128,
+        "k": 2,
+        "l2_embs_log10": -1.531764968757387,
+        "learning_rate": 0.01,
+        "n_early_stop": 20,
+        "n_epochs": 29
+      },
+      "Recommender_ubpr": {
+        "batch_size": 128,
+        "clip_min": 1e-05,
+        "k": 8,
+        "l2_embs_log10": -1.1961077732770926,
+        "learning_rate": 0.001,
+        "n_early_stop": 20,
+        "n_epochs": 37,
+        "ps_pow": 0.051483158887731334
+      },
+      "Recommender_relmf": {
+        "alpha": 0.05022561541249157,
+        "batch_size": 256,
+        "clip": 0.09718497075599923,
+        "k": 5,
+        "l2_embs_log10": -3.3916593840327325,
+        "learning_rate": 0.01,
+        "n_early_stop": 20,
+        "n_epochs": 21
+      },
+      "Recommender_binary_logit_negative_sampling": {
+        "batch_size": 256,
+        "k": 2,
+        "l2_embs_log10": -3.509943968148926,
+        "learning_rate": 0.01,
+        "n_early_stop": 20,
+        "n_epochs": 27
+      },
+      "Recommender_binary_logit": {
+        "batch_size": 256,
+        "k": 6,
+        "l2_embs_log10": -3.8977305768153334,
+        "learning_rate": 0.01,
+        "n_early_stop": 20,
+        "n_epochs": 24
+      },
+      "Recommender_multinomial_logit": {
+        "batch_size": 64,
+        "k": 8,
+        "l2_embs_log10": -4.141027049786272,
+        "learning_rate": 1,
+        "n_early_stop": 20,
+        "n_epochs": 24
+      },
+      "Recommender_exponomial": {
+        "batch_size": 64,
+        "k": 6,
+        "l2_embs_log10": -3.1511943759427385,
+        "learning_rate": 1,
+        "n_early_stop": 20,
+        "n_epochs": 11
+      },
+      "Recommender_generalized_multinomial_logit": {
+        "batch_size": 64,
+        "k": 2,
+        "l2_embs_log10": -5.867072921272569,
+        "learning_rate": 1,
+        "n_classes": 3,
+        "n_early_stop": 20,
+        "n_epochs": 22
+      },
+      "Recommender_macr": {
+        "batch_size": 256,
+        "k": 6,
+        "l2_embs_log10": -1.5392777757957603,
+        "learning_rate": 0.01,
+        "macr_alpha_log10": -3.0593727287511383,
+        "macr_beta_log10": -0.015236164068797464,
+        "macr_c": 1.9994993500068814,
+        "n_early_stop": 20,
+        "n_epochs": 5
+      },
+      "Recommender_pd": {
+        "alpha": 0.975,
+        "batch_size": 256,
+        "gamma": 0.19170279717654287,
+        "k": 3,
+        "l2_embs_log10": -1.5693874001281651,
+        "learning_rate": 0.01,
+        "n_early_stop": 20,
+        "n_epochs": 36
+      },
+      "Recommender_biser": {
+        "batch_size": 1,
+        "k": 18,
+        "l2_embs_log10": -2.5501265476120603,
+        "learning_rate": 0.1,
+        "n_early_stop": 20,
+        "n_epochs": 2,
+        "wi": 0.10102325289837158,
+        "wu": 0.38497383728428447
+      },
+      "Recommender_cpr": {
+        "batch_size": 256,
+        "beta": 1.0175779146050348,
+        "gamma": 0.474571000627731,
+        "k": 3,
+        "l2_embs_log10": -1.2960571181953284,
+        "learning_rate": 0.003,
+        "max_k_interact": 3,
+        "n_early_stop": 20,
+        "n_epochs": 77,
+        "n_step": 16
+      }
+    },
+    "BIAS": {
+      "Recommender_most_popular": {},
+      "Recommender_random": {},
+      "Recommender_knn": {
+        "n_neighbours": 51
+      },
+      "Recommender_bpr": {
+        "batch_size": 128,
+        "k": 2,
+        "l2_embs_log10": -1.565486956527864,
+        "learning_rate": 0.01,
+        "n_early_stop": 20,
+        "n_epochs": 25
+      },
+      "Recommender_ubpr": {
+        "batch_size": 128,
+        "clip_min": 1e-05,
+        "k": 2,
+        "l2_embs_log10": -1.6516671943517034,
+        "learning_rate": 0.001,
+        "n_early_stop": 20,
+        "n_epochs": 57,
+        "ps_pow": 0.05119096963410158
+      },
+      "Recommender_binary_logit_negative_sampling": {
+        "batch_size": 256,
+        "k": 4,
+        "l2_embs_log10": -2.9235849818425725,
+        "learning_rate": 0.01,
+        "n_early_stop": 20,
+        "n_epochs": 19
+      },
+      "Recommender_relmf": {
+        "alpha": 0.05014208534263537,
+        "batch_size": 256,
+        "clip": 0.0922681154760873,
+        "k": 4,
+        "l2_embs_log10": -3.994054845035744,
+        "learning_rate": 0.01,
+        "n_early_stop": 20,
+        "n_epochs": 34
+      },
+      "Recommender_binary_logit": {
+        "batch_size": 256,
+        "k": 3,
+        "l2_embs_log10": -3.8211696011781244,
+        "learning_rate": 0.01,
+        "n_early_stop": 20,
+        "n_epochs": 33
+      },
+      "Recommender_multinomial_logit": {
+        "batch_size": 64,
+        "k": 8,
+        "l2_embs_log10": -3.7931281117506517,
+        "learning_rate": 1,
+        "n_early_stop": 20,
+        "n_epochs": 20
+      },
+      "Recommender_exponomial": {
+        "batch_size": 64,
+        "k": 3,
+        "l2_embs_log10": -2.7983523517568347,
+        "learning_rate": 1,
+        "n_early_stop": 20,
+        "n_epochs": 47
+      },
+      "Recommender_generalized_multinomial_logit": {
+        "batch_size": 64,
+        "k": 2,
+        "l2_embs_log10": -5.053323381910397,
+        "learning_rate": 1,
+        "n_classes": 2,
+        "n_early_stop": 20,
+        "n_epochs": 20
+      },
+      "Recommender_macr": {
+        "batch_size": 256,
+        "k": 7,
+        "l2_embs_log10": -5.308593270575916,
+        "learning_rate": 0.01,
+        "macr_alpha_log10": -3.373584001203398,
+        "macr_beta_log10": -0.7386497550255715,
+        "macr_c": 8.001063015630624,
+        "n_early_stop": 20,
+        "n_epochs": 3
+      },
+      "Recommender_pd": {
+        "alpha": 0.975,
+        "batch_size": 256,
+        "gamma": 0.26955006430483425,
+        "k": 2,
+        "l2_embs_log10": -2.132837384690795,
+        "learning_rate": 0.01,
+        "n_early_stop": 20,
+        "n_epochs": 37
+      },
+      "Recommender_biser": {
+        "batch_size": 1,
+        "k": 18,
+        "l2_embs_log10": -2.1186379052533706,
+        "learning_rate": 0.1,
+        "n_early_stop": 20,
+        "n_epochs": 3,
+        "wi": 0.10991731577667006,
+        "wu": 0.10286887458108805
+      },
+      "Recommender_cpr": {
+        "batch_size": 256,
+        "beta": 1.7357827643071126,
+        "gamma": 0.7277573818466911,
+        "k": 5,
+        "l2_embs_log10": -5.324341418001216,
+        "learning_rate": 0.003,
+        "max_k_interact": 3,
+        "n_early_stop": 20,
+        "n_epochs": 84,
+        "n_step": 16
+      }
+    }
+  },
+  "competition": {
+    "popular": {
+      "Recommender_most_popular": {},
+      "Recommender_random": {},
+      "Recommender_knn": {
+        "n_neighbours": 47
+      },
+      "Recommender_bpr": {
+        "batch_size": 128,
+        "k": 2,
+        "l2_embs_log10": -2.024245882624064,
+        "learning_rate": 0.01,
+        "n_early_stop": 20,
+        "n_epochs": 24
+      },
+      "Recommender_ubpr": {
+        "batch_size": 128,
+        "clip_min": 1e-05,
+        "k": 3,
+        "l2_embs_log10": -1.5674655577619925,
+        "learning_rate": 0.001,
+        "n_early_stop": 20,
+        "n_epochs": 56,
+        "ps_pow": 0.05119996318889383
+      },
+      "Recommender_binary_logit_negative_sampling": {
+        "batch_size": 256,
+        "k": 8,
+        "l2_embs_log10": -2.419271119899908,
+        "learning_rate": 0.01,
+        "n_early_stop": 20,
+        "n_epochs": 25
+      },
+      "Recommender_relmf": {
+        "alpha": 0.05010508917060941,
+        "batch_size": 256,
+        "clip": 0.0856671132457552,
+        "k": 8,
+        "l2_embs_log10": -3.4724750624172183,
+        "learning_rate": 0.01,
+        "n_early_stop": 20,
+        "n_epochs": 38
+      },
+      "Recommender_binary_logit": {
+        "batch_size": 256,
+        "k": 5,
+        "l2_embs_log10": -3.8342193743593205,
+        "learning_rate": 0.01,
+        "n_early_stop": 20,
+        "n_epochs": 27
+      },
+      "Recommender_multinomial_logit": {
+        "batch_size": 64,
+        "k": 3,
+        "l2_embs_log10": -3.3971841623391574,
+        "learning_rate": 1,
+        "n_early_stop": 20,
+        "n_epochs": 60
+      },
+      "Recommender_exponomial": {
+        "batch_size": 64,
+        "k": 8,
+        "l2_embs_log10": -3.02842336626534,
+        "learning_rate": 1,
+        "n_early_stop": 20,
+        "n_epochs": 11
+      },
+      "Recommender_generalized_multinomial_logit": {
+        "batch_size": 64,
+        "k": 3,
+        "l2_embs_log10": -4.892823601895267,
+        "learning_rate": 1,
+        "n_classes": 5,
+        "n_early_stop": 20,
+        "n_epochs": 17
+      },
+      "Recommender_macr": {
+        "batch_size": 256,
+        "k": 5,
+        "l2_embs_log10": -2.2147255769598084,
+        "learning_rate": 0.01,
+        "macr_alpha_log10": -4.941687840339383,
+        "macr_beta_log10": -0.6273119823752324,
+        "macr_c": 9.638723999209203,
+        "n_early_stop": 20,
+        "n_epochs": 9
+      },
+      "Recommender_pd": {
+        "alpha": 0.975,
+        "batch_size": 256,
+        "gamma": 0.02274608501905682,
+        "k": 2,
+        "l2_embs_log10": -5.653956976841516,
+        "learning_rate": 0.01,
+        "n_early_stop": 20,
+        "n_epochs": 32
+      },
+      "Recommender_biser": {
+        "batch_size": 1,
+        "k": 19,
+        "l2_embs_log10": -3.0006368704220785,
+        "learning_rate": 0.1,
+        "n_early_stop": 20,
+        "n_epochs": 8,
+        "wi": 0.573862920990687,
+        "wu": 0.3199612342714489
+      },
+      "Recommender_cpr": {
+        "batch_size": 256,
+        "beta": 2.0730878277410123,
+        "gamma": 0.34057452811098227,
+        "k": 8,
+        "l2_embs_log10": -2.914588484002458,
+        "learning_rate": 0.003,
+        "max_k_interact": 3,
+        "n_early_stop": 20,
+        "n_epochs": 86,
+        "n_step": 16
+      }
+    },
+    "unpopular": {
+      "Recommender_most_popular": {},
+      "Recommender_random": {},
+      "Recommender_knn": {
+        "n_neighbours": 71
+      },
+      "Recommender_bpr": {
+        "batch_size": 128,
+        "k": 3,
+        "l2_embs_log10": -1.4947018180593528,
+        "learning_rate": 0.01,
+        "n_early_stop": 20,
+        "n_epochs": 23
+      },
+      "Recommender_ubpr": {
+        "batch_size": 128,
+        "clip_min": 1e-05,
+        "k": 3,
+        "l2_embs_log10": -1.372356418050222,
+        "learning_rate": 0.001,
+        "n_early_stop": 20,
+        "n_epochs": 44,
+        "ps_pow": 0.05043285741018
+      },
+      "Recommender_binary_logit_negative_sampling": {
+        "batch_size": 256,
+        "k": 4,
+        "l2_embs_log10": -3.5843424580038903,
+        "learning_rate": 0.01,
+        "n_early_stop": 20,
+        "n_epochs": 24
+      },
+      "Recommender_relmf": {
+        "alpha": 0.051702309263650034,
+        "batch_size": 256,
+        "clip": 0.08294101032423891,
+        "k": 5,
+        "l2_embs_log10": -3.4115445195272898,
+        "learning_rate": 0.01,
+        "n_early_stop": 20,
+        "n_epochs": 35
+      },
+      "Recommender_binary_logit": {
+        "batch_size": 256,
+        "k": 3,
+        "l2_embs_log10": -4.0134375835415845,
+        "learning_rate": 0.01,
+        "n_early_stop": 20,
+        "n_epochs": 36
+      },
+      "Recommender_multinomial_logit": {
+        "batch_size": 64,
+        "k": 8,
+        "l2_embs_log10": -3.8778217922090716,
+        "learning_rate": 1,
+        "n_early_stop": 20,
+        "n_epochs": 22
+      },
+      "Recommender_exponomial": {
+        "batch_size": 64,
+        "k": 4,
+        "l2_embs_log10": -2.995322497071765,
+        "learning_rate": 1,
+        "n_early_stop": 20,
+        "n_epochs": 31
+      },
+      "Recommender_generalized_multinomial_logit": {
+        "batch_size": 64,
+        "k": 3,
+        "l2_embs_log10": -6.07493780086842,
+        "learning_rate": 1,
+        "n_classes": 2,
+        "n_early_stop": 20,
+        "n_epochs": 18
+      },
+      "Recommender_macr": {
+        "batch_size": 256,
+        "k": 8,
+        "l2_embs_log10": -1.782699090002879,
+        "learning_rate": 0.01,
+        "macr_alpha_log10": -3.1377667566465792,
+        "macr_beta_log10": -0.01896100222244712,
+        "macr_c": 0.007131398664637079,
+        "n_early_stop": 20,
+        "n_epochs": 3
+      },
+      "Recommender_pd": {
+        "alpha": 0.975,
+        "batch_size": 256,
+        "gamma": 0.1900104990562665,
+        "k": 2,
+        "l2_embs_log10": -2.0660669677343693,
+        "learning_rate": 0.01,
+        "n_early_stop": 20,
+        "n_epochs": 25
+      },
+      "Recommender_biser": {
+        "batch_size": 1,
+        "k": 19,
+        "l2_embs_log10": -2.4796195099864597,
+        "learning_rate": 0.1,
+        "n_early_stop": 20,
+        "n_epochs": 7,
+        "wi": 0.4274807814519447,
+        "wu": 0.5561486649754589
+      },
+      "Recommender_cpr": {
+        "batch_size": 256,
+        "beta": 1.5006344900301718,
+        "gamma": 0.34404942846485803,
+        "k": 5,
+        "l2_embs_log10": -5.99594827684083,
+        "learning_rate": 0.003,
+        "max_k_interact": 3,
+        "n_early_stop": 20,
+        "n_epochs": 72,
+        "n_step": 16
+      }
+    }
+  }
+}

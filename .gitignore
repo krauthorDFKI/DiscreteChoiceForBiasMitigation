@@ -1,0 +1,8 @@
+data/hyperparameter_tuning/overexposure/*
+data/hyperparameter_tuning/competition/*
+data/training/overexposure/*
+data/training/competition/*
+data/results/overexposure/*
+data/results/competition/*
+.venv/
+.vscode/
