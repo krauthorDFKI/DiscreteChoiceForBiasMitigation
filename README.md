@@ -25,6 +25,8 @@ We used the following baselines:
 - BIlateral SElf-unbiased Recommender (BISER)
 - Cross Pairwise Ranking (CPR)
 
+We would like to issue special thanks to the authors of [BISER](https://github.com/Jaewoong-Lee/sigir_2022_BISER) and [CPR](https://github.com/Qcactus/CPR) for promptly accommodating our requests to include licenses in their repositories.
+
 We plan to include the code for PD as soon as the authors include the necessary licenses. We apologize for any delay this may cause. Thank you for your patience and understanding.
 
 ## Installation
