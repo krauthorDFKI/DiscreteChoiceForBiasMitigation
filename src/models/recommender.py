@@ -10,7 +10,7 @@ import sys
 sys.path.append("recommender/Models/Lee_2022_BISER")
 sys.path.append("recommender/Models/Lee_2022_BISER/models/cpr_paper/")
 
-from src.models.Lee_2022_BISER.trainer import Trainer
+from Lee_2022_BISER.trainer import Trainer
 
 def prepare_data(users, alternatives, choices):
     return(np.asarray([[users[i], alternatives[i], choices[i]] for i in range(len(users))], dtype=object))
@@ -412,10 +412,10 @@ class Recommender_baselines(Recommender):
             self.batch_size = int(self.batch_size * 1. * (self.C - 1) / self.C)
     
     def train(self, data_train, data_validation=None, hyperparams=None):
-        reload(sys.modules['src.models.Lee_2022_BISER.trainer'])
-        from src.models.Lee_2022_BISER.trainer import Trainer
+        reload(sys.modules['Lee_2022_BISER.trainer'])
+        from Lee_2022_BISER.trainer import Trainer
 
-        from src.models.Lee_2022_BISER.util.preprocessor import preprocess_dataset
+        from Lee_2022_BISER.util.preprocessor import preprocess_dataset
         train, val, pscore, item_freq = preprocess_dataset(data_train, data_validation, alpha=self.hyperparams["alpha"])
 
         self.trainer = Trainer(hyperparams=hyperparams)

@@ -192,40 +192,6 @@ def tune_hyperparameters():
                                       'initial_random': 100, # Number of samples, not iterations -> No need to not account for the number of available threads here
                                       'early_stopping': early_stop,
                                     })
-                    
-                    # def test():
-                    #     from time import time
-                    #     s = time()
-                    #     hp = tuner.ds.get_random_sample(1)[0]
-                    #     hp["k"] = 2
-                    #     hp["l2_embs_log10"] = -2
-                    #     hp["beta"] = 1
-                    #     hp["learning_rate"] = 0.003
-                    #     hp["gamma"] = 2
-                    #     hp["max_k_interact"] = 2
-                    #     hp["batch_size"] = 256
-                    #     hp["n_step"] = 16 # 16
-                    #     import numpy as np
-                    #     json_path = evaluate_hyperparams(
-                    #         model_name, 
-                    #         json.dumps(hp), 
-                    #         mode, 
-                    #         eval_set,
-                    #         batch_train_str=json.dumps([int(i) for i in np.random.choice(range(284), 190, replace=False)])
-                    #         )
-                    #     print(time()-s)
-                    #     return json_path
-                    # test()
-                    # pass
-
-                    # raise Exception()
-                        
-                    # nDCGs = []
-                    # for _ in range(10):
-                    #     json_path = test()
-                    #     with open(json_path) as f:
-                    #         nDCGs.append(json.load(f)["nDCG"])
-                    # print(np.mean(nDCGs))
 
                     results = tuner.maximize()
 

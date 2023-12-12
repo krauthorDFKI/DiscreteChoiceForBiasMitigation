@@ -130,7 +130,7 @@ def plot_mean_coefficients(models, mean_coefficients, x_header, groups, colors, 
                 verticalalignment='center', 
                 horizontalalignment='center')
         
-        text = fig.text(-0.02, (2+9/2 + 0.5)/ymax, "Positive-only",
+        text = fig.text(-0.02, (2+9/2 + 0.5)/ymax, "Positive-only rating matrix",
             transform=fig.transFigure, va='center', fontdict={'family': 'serif', 'size': 8}, rotation=90,
                 multialignment='center',
                 verticalalignment='center', 
@@ -144,7 +144,7 @@ def plot_mean_coefficients(models, mean_coefficients, x_header, groups, colors, 
                 verticalalignment='center', 
                 horizontalalignment='center')
         
-        text = fig.text(-0.16, (2+9/2 + 0.5)/ymax, "Positive-only",
+        text = fig.text(-0.16, (2+9/2 + 0.5)/ymax, "Positive-only rating matrix",
             transform=ax.transAxes, va='center', fontdict={'family': 'serif', 'size': 8}, rotation=90,
                 multialignment='center',
                 verticalalignment='center', 

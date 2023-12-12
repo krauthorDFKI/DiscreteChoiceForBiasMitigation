@@ -148,7 +148,7 @@ HYPERPARAMETER_SEARCH_SPACES = {
         "ps_pow": uniform(0.05, 0.95), # 0.05 to 1
         "clip_min": [1e-5],
     },
-    "Recommender_cpr": { # CPR https://dl.acm.org/doi/pdf/10.1145/3404835.3462875
+    "Recommender_cpr": { # CPR https://dl.acm.org/doi/pdf/10.1145/3485447.3512010
         "k": range(2, 10),
         "learning_rate": [0.003],
         "batch_size": [256],

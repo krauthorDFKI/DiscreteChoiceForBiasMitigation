@@ -6,3 +6,4 @@ data/results/overexposure/*
 data/results/competition/*
 .venv/
 .vscode/
+*__pycache__/*
