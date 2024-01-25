@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import json
+from tqdm import tqdm
 
 from src.evaluation.process_results import read_data_for_models
 from src.data.load_dataset import load_dataset
@@ -8,7 +9,7 @@ from src.utils import create_path
 from src.paths import EVALUATION_RESULTS_PATH, OUTPUT_TABLE_PATH
 from src.config import OUTPUT_TABLES_MODEL_NAMES
 
-def plot_mean_coefficients(models, mean_coefficients, x_header, groups, colors, outfile, x_min=None, x_max=None, header=None, mean_coefficients_2=None, x_header_2=None):
+def plot_mean_coefficients(models, mean_coefficients, x_header, groups, colors, outfile, x_min=None, x_max=None, header=None, mean_coefficients_2=None, x_header_2=None, sub_plot_headers=None):
 
     models = models[::-1] # reverse
     mean_coefficients = mean_coefficients[::-1] # reverse
@@ -33,6 +34,17 @@ def plot_mean_coefficients(models, mean_coefficients, x_header, groups, colors, 
             fig.text(0.5, 0.92, header, ha='center', fontdict={'family': 'serif', 'size': 8, "weight" : "bold"})
         else:
             fig.text(0.5, 1, header, ha='center', fontdict={'family': 'serif', 'size': 8, "weight" : "bold"})
+    
+    # add the sub-plot headers
+    if sub_plot_headers is not None:
+        # if mean_coefficients_2 is None:
+        #     fig.text(0.5, 0.88, sub_plot_headers[0], ha='center', fontdict={'family': 'serif', 'size': 8})
+        # else:
+        #     fig.text(0.5, 0.88, sub_plot_headers[0], ha='center', fontdict={'family': 'serif', 'size': 8})
+        #     fig.text(0.5, 0.44, sub_plot_headers[1], ha='center', fontdict={'family': 'serif', 'size': 8})
+        for idx, axis in enumerate(axes):
+            axis.title.set_text(sub_plot_headers[idx])
+            axis.title.set_fontproperties({'family': 'serif', 'size': 8, "weight" : "bold"})
 
     # remove the box around the plot
     for axis in axes:
@@ -118,19 +130,19 @@ def plot_mean_coefficients(models, mean_coefficients, x_header, groups, colors, 
     if mean_coefficients_2 is not None:
         line_left_edge = -0.2
 
-    for axis in axes:
-        fig.add_artist(plt.Line2D([line_left_edge, 1], [(1.5-ymin)/(ymax-ymin), (1.5-ymin)/(ymax-ymin)], color='lightgrey', linewidth=1, transform=axis.transAxes))
-        fig.add_artist(plt.Line2D([line_left_edge, 1], [(10.5-ymin)/(ymax-ymin), (10.5-ymin)/(ymax-ymin)], color='lightgrey', linewidth=1, transform=axis.transAxes))
+    # for axis in axes:
+    #     fig.add_artist(plt.Line2D([line_left_edge, 1], [(1.5-ymin)/(ymax-ymin), (1.5-ymin)/(ymax-ymin)], color='lightgrey', linewidth=1, transform=axis.transAxes))
+    #     fig.add_artist(plt.Line2D([line_left_edge, 1], [(10.5-ymin)/(ymax-ymin), (10.5-ymin)/(ymax-ymin)], color='lightgrey', linewidth=1, transform=axis.transAxes))
 
     if mean_coefficients_2 is not None:
 
-        text = fig.text(-0.02, (2+9+4/2 + 0)/ymax, "Discrete choice",
+        text = fig.text(-0.02, (2+9+4/2 - 0.5)/ymax, "Discrete choice",
             transform=fig.transFigure, va='center', fontdict={'family': 'serif', 'size': 8, "weight" : "bold"}, rotation=90,
                 multialignment='center',
                 verticalalignment='center', 
                 horizontalalignment='center')
         
-        text = fig.text(-0.02, (2+9/2 + 0.5)/ymax, "Positive-only rating matrix",
+        text = fig.text(-0.02, (2+9/2 + 0.5)/ymax, "Binary rating matrix",
             transform=fig.transFigure, va='center', fontdict={'family': 'serif', 'size': 8}, rotation=90,
                 multialignment='center',
                 verticalalignment='center', 
@@ -138,13 +150,13 @@ def plot_mean_coefficients(models, mean_coefficients, x_header, groups, colors, 
         
     else:
 
-        text = fig.text(-0.16, (2+9+4/2 + 0)/ymax, "Discrete choice",
+        text = fig.text(-0.16, (2+9+4/2 - 0.5)/ymax, "Discrete choice",
             transform=ax.transAxes, va='center', fontdict={'family': 'serif', 'size': 8, "weight" : "bold"}, rotation=90,
                 multialignment='center',
                 verticalalignment='center', 
                 horizontalalignment='center')
         
-        text = fig.text(-0.16, (2+9/2 + 0.5)/ymax, "Positive-only rating matrix",
+        text = fig.text(-0.16, (2+9/2 + 0.5)/ymax, "Binary rating matrix",
             transform=ax.transAxes, va='center', fontdict={'family': 'serif', 'size': 8}, rotation=90,
                 multialignment='center',
                 verticalalignment='center', 
@@ -176,44 +188,44 @@ def create_plots():
     ##### BIAS PLOTS ########
     plot_mean_coefficients(
         models=[OUTPUT_TABLES_MODEL_NAMES[model] for model in models],
-        mean_coefficients=[np.mean(processed_results["bias"]["overexposure"][model]['ave_bias_coeffs_per_item']) for model in models],
+        mean_coefficients=[np.abs(np.mean(processed_results["bias"]["overexposure"][model]['ave_bias_coeffs_per_item'])) for model in models],
         x_header="Mean bias $\hat{\delta}$",
         groups=groups,
         colors=colors,
         outfile="data/output/plots/bias_overexposure.svg",
-        header="Exposure bias through overexposure",
+        header="Exposure bias through over-exposure",
     )
 
     plot_mean_coefficients(
         models=[OUTPUT_TABLES_MODEL_NAMES[model] for model in models],
-        mean_coefficients=[np.mean(processed_results["bias"]["overexposure"][model]['ave_bias_coeffs_per_item']) for model in models],
-        mean_coefficients_2=[np.mean(processed_results["bias_adjusted"][model]["ave_adj_bias_coeffs"]) for model in models],
+        mean_coefficients=[np.abs(np.mean(processed_results["bias"]["overexposure"][model]['ave_bias_coeffs_per_item'])) for model in models],
+        mean_coefficients_2=[np.abs(np.mean(processed_results["bias_adjusted"][model]["ave_adj_bias_coeffs"])) for model in models],
         x_header="Mean bias $\hat{\delta}$",
         x_header_2="Adjusted mean bias $\hat{\delta}^'$",
         groups=groups,
         colors=colors,
         outfile="data/output/plots/bias_overexposure_side_by_side.svg",
-        header="Exposure bias through overexposure",
+        sub_plot_headers=["Exposure bias through over-exposure", "Exposure bias through over-exposure (adjusted)"],
     )
 
     plot_mean_coefficients(
         models=[OUTPUT_TABLES_MODEL_NAMES[model] for model in models],
-        mean_coefficients=[np.mean(processed_results["bias_adjusted"][model]["ave_adj_bias_coeffs"]) for model in models],
+        mean_coefficients=[np.abs(np.mean(processed_results["bias_adjusted"][model]["ave_adj_bias_coeffs"])) for model in models],
         x_header="Adjusted mean bias $\hat{\delta}^'$",
         groups=groups,
         colors=colors,
         outfile="data/output/plots/bias_overexposure_adjusted.svg",
-        header="Exposure bias through overexposure (adjusted)",
+        header="Exposure bias through over-exposure (adjusted)",
     )
 
     plot_mean_coefficients(
         models=[OUTPUT_TABLES_MODEL_NAMES[model] for model in models],
-        mean_coefficients=[np.mean(processed_results["bias"]["competition"][model]['ave_bias_coeffs_per_item']) for model in models],
+        mean_coefficients=[np.abs(np.mean(processed_results["bias"]["competition"][model]['ave_bias_coeffs_per_item'])) for model in models],
         x_header="Mean bias $\hat{\delta}$",
         groups=groups,
         colors=colors,
         outfile="data/output/plots/bias_competition.svg",
-        header="Exposure bias through competition",
+        header="Exposure bias through over-/under-competition",
     )
 
     ##### PERFORMANCE PLOTS ########
@@ -227,7 +239,7 @@ def create_plots():
         outfile="data/output/plots/performance_overexposure_B.svg",
         x_min=0.59,
         x_max=0.73,
-        header="Mean nDCG for uniform frequencies$",
+        header="Mean nDCG for uniform exposure$",
     )
 
     plot_mean_coefficients(
@@ -239,7 +251,7 @@ def create_plots():
         outfile="data/output/plots/performance_overexposure_BIAS.svg",
         x_min=0.59,
         x_max=0.73,
-        header="Mean nDCG for non-uniform exposure frequencies$",
+        header="Mean nDCG for over-exposure$",
     )
 
     plot_mean_coefficients(
@@ -252,7 +264,7 @@ def create_plots():
         outfile="data/output/plots/performance_overexposure_side_by_side.svg",
         x_min=0.59,
         x_max=0.73,
-        header="Mean nDCG for uniform and non-uniform exposure frequencies",
+        sub_plot_headers=["Mean nDCG for uniform exposure", "Mean nDCG for over-exposure"]
     )
 
     plot_mean_coefficients(
@@ -264,7 +276,7 @@ def create_plots():
         outfile="data/output/plots/performance_competition_popular.svg",
         x_min=0.59,
         x_max=0.73,
-        header="Mean nDCG for exposure with popular competitors",
+        header="Mean nDCG for over-competition",
     )
 
     plot_mean_coefficients(
@@ -276,7 +288,7 @@ def create_plots():
         outfile="data/output/plots/performance_competition_unpopular.svg",
         x_min=0.59,
         x_max=0.73,
-        header="Mean nDCG for exposure with unpopular competitors",
+        header="Mean nDCG for under-competition",
     )
 
     plot_mean_coefficients(
@@ -289,16 +301,5 @@ def create_plots():
         outfile="data/output/plots/performance_competition_side_by_side.svg",
         x_min=0.59,
         x_max=0.73,
-        header="Mean nDCG for exposure with popular and unpopular competitors",
+        sub_plot_headers=["Mean nDCG for over-competition", "Mean nDCG for under-competition"]
     )
-
-    # table = generate_and_print_performance_table(
-    #     title="Performance Overexposure",
-    #     header=performance_header,
-    #     models=models,
-    #     n_tests=performance_n_tests,
-    #     NDCG_data_unbiased={model: raw_results["overexposure"][model]["mean_nDCG_B"] for model in models},
-    #     NDCG_data_biased={model: raw_results["overexposure"][model]["mean_nDCG_BIAS"] for model in models},
-    #     pval_NDCGs_unbiased={model: processed_results["performance"]["overexposure"][model]["pval_nDCG_B"] for model in models},
-    #     pval_NDCGs_biased={model: processed_results["performance"]["overexposure"][model]["pval_nDCG_BIAS"] for model in models},
-    # )
