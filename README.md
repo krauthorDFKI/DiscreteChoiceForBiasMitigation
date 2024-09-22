@@ -1,6 +1,6 @@
 # Code Repository for "Mitigating Exposure Bias in Recommender Systems – A Comparative Analysis of Discrete Choice Models"
 
-This is a code repository for the unpublished research paper "Mitigating Exposure Bias in Recommender Systems – A Comparative Analysis of Discrete Choice Models" by Thorsten Krause, Alina Deriyeva, Jan H. Beinke, Gerrit Y. Bartels, and Oliver Thomas. 
+This is a code repository for the research paper "Mitigating Exposure Bias in Recommender Systems – A Comparative Analysis of Discrete Choice Models" by Thorsten Krause, Alina Deriyeva, Jan H. Beinke, Gerrit Y. Bartels, and Oliver Thomas available in the ACM Transactions on Recommender Systems (ACM TORS). The paper is available at ACM: https://dl.acm.org/doi/10.1145/3641291.
 
 If you use any part of this code, please cite it using the following BibTex:
 
