@@ -4,12 +4,23 @@ This is a code repository for the unpublished research paper "Mitigating Exposur
 
 If you use any part of this code, please cite it using the following BibTex:
 
-(BibTex)
+```{bibtex}
+@article{krause2024mitigating,
+  title={Mitigating Exposure Bias in Recommender Systems--A Comparative Analysis of Discrete Choice Models},
+  author={Krause, Thorsten and Deriyeva, Alina and Beinke, Jan H and Bartels, Gerrit Y and Thomas, Oliver},
+  journal={ACM Transactions on Recommender Systems},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  year={2024},
+  doi = {10.1145/3641291},
+}
+```
 
 ## Repository Under Construction
 Please note that this repository is currently under construction and may not be fully functional. We apologize for any inconvenience this may cause. We are working to complete the repository as soon as possible.
 
 ## Data set
+This repository contains the pre-processed dataset to avoid privacy violations. The data are stored in `data/user_study/data.pkl` and loaded in `src/data/load_dataset.py`.
 
 ## Baselines
 We used the following baselines:
@@ -27,7 +38,7 @@ We used the following baselines:
 
 We would like to issue special thanks to the authors of [BISER](https://github.com/Jaewoong-Lee/sigir_2022_BISER) and [CPR](https://github.com/Qcactus/CPR) for promptly accommodating our requests to include licenses in their repositories.
 
-We plan to include the code for PD as soon as the authors include the necessary licenses. We apologize for any delay this may cause. Thank you for your patience and understanding.
+We plan to include the code for PD as soon as the necessary licenses are available.
 
 ## Installation
 Running the code requires an installation of python 3.9.x. To install the necessary components for this project, create and activate an environment, and run the following command:
@@ -43,10 +54,6 @@ To run the entire experiment, run `main.py` in the `src` directory
 ```
 python3 src/main.py
 ```
-
-To run individual models, please follow the instructions below:
-
-(Instructions on running the code for individual models)
 
 ## Hyperparameters
 
